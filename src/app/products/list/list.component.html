@@ -1,18 +1,21 @@
 <div class="container">
     <h2>Products List</h2>
     <table class="table-hover">
-        
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Name</th>
                 <th>Unit Price</th>
                 <th>Units in Stock</th>
-            
             </tr>
         </thead>
         <tbody>
-
+            <tr *ngFor="let prod of list">
+                <td>{{prod.ProductID}}</td>
+                <td>{{prod.ProductName}}</td>
+                <td>{{prod.UnitPrice}}</td>
+                <td>{{prod.UnitsInStock}}</td>
+            </tr>
         </tbody>
     </table>
 </div>

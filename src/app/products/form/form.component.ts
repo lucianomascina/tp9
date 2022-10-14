@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder,FormGroup, Validators} from '@angular/forms';
+import { Product } from '../models/product';
+import { ProductService } from '../services/product.service';
 
 @Component({
   selector: 'app-form',
@@ -8,17 +10,31 @@ import {FormBuilder,FormGroup, Validators} from '@angular/forms';
 })
 export class FormComponent implements OnInit {
 
-  form!: FormGroup;
+  public form!: FormGroup;
 
-  constructor(private readonly fb: FormBuilder) { }
+  constructor(private readonly fb: FormBuilder, private productService: ProductService) { }
 
   ngOnInit(): void {
     this.form = this.fb.group({
       name: ['',[Validators.required]],
       unitPrice: [''],
       unitsInStock: ['']
-
     });
+    
+  }
+
+  saveProduct(){
+   /* var product = new Product();
+    product.ProductName = this.form.get('name').value;
+    product.ProductName = this.form.get('unitPrice').value;
+    product.ProductName = this.form.get('unitsInStock').value;
+
+    this.productService.createProduct(product).subscribe(res => {
+      this.form.reset();
+      alert("se guardo el producto");
+
+    })*/;
+
   }
 
   onSubmit() : void {
@@ -26,9 +42,6 @@ export class FormComponent implements OnInit {
   }
 
   onClickClean():void {
-    const nameCtrl = this.form.get('name');
-    if(nameCtrl){
-      nameCtrl.setValue('');
-    }
+    this.form.reset();
   }
 }

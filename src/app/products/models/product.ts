@@ -1,6 +1,6 @@
 export class Product{
-    
-    ProductName : string;
-    UnitPrice : number;
-    UnitsInStock : number;
+    ProductID!: number;
+    ProductName!: string;
+    UnitPrice!: number;
+    UnitsInStock!: number;
 }
