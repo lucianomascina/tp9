@@ -15,25 +15,25 @@ export class ProductService {
   constructor(private http: HttpClient) { }
 
   public createProduct(productRequest: Product): Observable<any>{
-     let url =environment.apiProducts + this.endpoint;
+     let url =environment.api + this.endpoint;
     return this.http.post(url,productRequest);
 
   }
 
   public getProducts(): Observable<Array<Product>>{
-    let url =environment.apiProducts + this.endpoint;
+    let url =environment.api + this.endpoint;
     return this.http.get<Array<Product>>(url);
   }
 
   public deleteProduct(id:number): Observable<any>{
-    let url =environment.apiProducts + this.endpoint + id;
+    let url =environment.api + this.endpoint + id;
     return this.http.delete(url);
   } 
 
- /* public updateProduct(productRequest: Product): Observable<any>{
-    let url =environment.apiProducts + this.endpoint;
+ public updateProduct(productRequest: Product): Observable<any>{
+    let url =environment.api + this.endpoint;
    return this.http.put(url,productRequest);
 
- }*/
+ }
 
 }
