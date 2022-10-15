@@ -25,12 +25,12 @@ export class ProductService {
     return this.http.get<Array<Product>>(url);
   }
 
- /* public deleteProduct(id): Observable<any>{
-    let url =environment.apiProducts + this.endpoint;
-    return this.http.delete(url,productRequest);
+  public deleteProduct(id:number): Observable<any>{
+    let url =environment.apiProducts + this.endpoint + id;
+    return this.http.delete(url);
   } 
 
-  public updateProduct(productRequest: Product): Observable<any>{
+ /* public updateProduct(productRequest: Product): Observable<any>{
     let url =environment.apiProducts + this.endpoint;
    return this.http.put(url,productRequest);
 

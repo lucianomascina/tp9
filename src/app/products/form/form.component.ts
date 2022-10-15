@@ -24,16 +24,16 @@ export class FormComponent implements OnInit {
   }
 
   saveProduct(){
-   /* var product = new Product();
-    product.ProductName = this.form.get('name').value;
-    product.ProductName = this.form.get('unitPrice').value;
-    product.ProductName = this.form.get('unitsInStock').value;
+   var product = new Product();
+    product.ProductName = this.form.get('name')!.value;
+    product.ProductName = this.form.get('unitPrice')!.value;
+    product.ProductName = this.form.get('unitsInStock')!.value;
 
     this.productService.createProduct(product).subscribe(res => {
       this.form.reset();
       alert("se guardo el producto");
 
-    })*/;
+    });
 
   }
 

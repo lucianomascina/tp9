@@ -24,4 +24,11 @@ export class ListComponent implements OnInit {
   });
 
   }
+
+  deleteProduct(id:number){
+    this.productService.deleteProduct(id).subscribe(res => {
+      alert("producto borrado correctamente");
+      
+    });
+  }
 }
