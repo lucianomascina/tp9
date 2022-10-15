@@ -20,8 +20,9 @@ export class CategoryService {
   }
 
   public getCategories(): Observable<Array<Category>>{
-    let url =environment.api + this.endpoint;
+    let url =environment.api + this.endpoint + "categories";
     return this.http.get<Array<Category>>(url);
+    
   }
 
   public deleteCategory(id:number): Observable<any>{

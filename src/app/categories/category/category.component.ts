@@ -9,6 +9,7 @@ import { CategoryService } from '../services/category.service';
   templateUrl: './category.component.html',
   styleUrls: ['./category.component.css']
 })
+
 export class CategoryComponent implements OnInit {
 
   public form!: FormGroup;
@@ -32,7 +33,7 @@ export class CategoryComponent implements OnInit {
      this.categoryService.createCategory(category).subscribe(res => {
        this.form.reset();
        alert("se guardo la categoria");
- 
+        this.getAll();
      });
  
    }
@@ -48,7 +49,7 @@ export class CategoryComponent implements OnInit {
   deleteCategory(id:number){
     this.categoryService.deleteCategory(id).subscribe(res => {
       alert("categoria borrada correctamente");
-      
+      this.getAll();
     });
   }
    onSubmit() : void {

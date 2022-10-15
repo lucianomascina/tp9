@@ -8,6 +8,7 @@ import { ProductService } from '../services/product.service';
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css']
 })
+
 export class FormComponent implements OnInit {
 
   public form!: FormGroup;
