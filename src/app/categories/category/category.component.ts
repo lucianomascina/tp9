@@ -56,7 +56,8 @@ export class CategoryComponent implements OnInit {
     this.categoryService.deleteCategory(id).subscribe(res => {
       alert("categoria borrada correctamente");
       this.getAll();
-    });
+    },
+    error => alert("no es posible borrar la categoria ya que esta asociada a otra entidad"));
   }
 
   updateCategory(id:number){

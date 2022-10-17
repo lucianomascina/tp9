@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Category } from '../../models/category';
 import { CategoryService } from '../../services/category.service';
 
 
@@ -29,15 +30,19 @@ export class UpdateComponent implements OnInit {
   }
 
   updateCategory(){
-    /*var category = this.categoryService.getCategory(this.id);
+    var category = new Category();
+    this.categoryService.getCategory(this.id).subscribe(res => {
+      category = res;
+    });
+    
      category.CategoryName = this.form.get('name')!.value;
      category.Description = this.form.get('description')!.value;
   
      this.categoryService.updateCategory(category).subscribe(res => {
-       this.form.reset();
        
-       alert("se modifico la categoria");*/
-
+       alert("se modifico la categoria");
+       
+     });
   }
 
   get controls() { return this.form.controls; }
