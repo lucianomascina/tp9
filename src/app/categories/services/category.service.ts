@@ -36,11 +36,11 @@ export class CategoryService {
 
  }
 
- public getCategory(id: number): Observable<Category>{
+ /*public getCategory(id: number): Observable<Category>{
     let url = environment.api + this.endpoint + id;
     
     return this.http.get(url);
 
-  }
+  }*/
 
 }

@@ -7,13 +7,13 @@ import { MainComponent } from './products/main/main.component';
 
 const routes: Routes = [
   {
-    path : '',
+    path : 'categories',
     component : CategoryComponent
   },
   {
     path: 'update/:id',
     component: UpdateComponent
-  } 
+  },
   {
     path: 'products',
     component: MainComponent

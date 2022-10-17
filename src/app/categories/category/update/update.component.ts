@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CategoryService } from '../../services/category.service';
 
 
@@ -11,11 +11,13 @@ import { CategoryService } from '../../services/category.service';
 })
 export class UpdateComponent implements OnInit {
 
+  id!: number;
   public form!: FormGroup;
 
-  constructor(private readonly fb: FormBuilder, private categoryService: CategoryService, private router: Router) { }
+  constructor(private readonly fb: FormBuilder, private categoryService: CategoryService, private router: Router, private route:ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.id = this.route.snapshot.params['id'];
     this.initForm();
   }
 
@@ -27,14 +29,14 @@ export class UpdateComponent implements OnInit {
   }
 
   updateCategory(){
-    var category = this.categoryService.getCategory(id);
+    /*var category = this.categoryService.getCategory(this.id);
      category.CategoryName = this.form.get('name')!.value;
      category.Description = this.form.get('description')!.value;
   
      this.categoryService.updateCategory(category).subscribe(res => {
        this.form.reset();
        
-       alert("se modifico la categoria");
+       alert("se modifico la categoria");*/
 
   }
 

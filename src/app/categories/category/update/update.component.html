@@ -1,8 +1,9 @@
 <main class="container mt-4">
     <div class="row">
-        <div class="col-md-5">
+        <div class="col-md-5 offset-md-3">
             <h2 class="text-center">Update Category</h2>
             <form [formGroup]="form" >
+                <h3>ID: {{id}}</h3>
                 <div class="form-group mt-3">
                     <label for="name" class="form-label">Name:</label>
                     <input formControlName="name" type="text" class="form-control" id="name" placeholder="Enter name"
