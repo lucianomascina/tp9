@@ -14,26 +14,33 @@ export class CategoryService {
   constructor(private http: HttpClient) { }
 
   public createCategory(categoryRequest: Category): Observable<any>{
-     let url =environment.api + this.endpoint;
+     let url = environment.api + this.endpoint;
     return this.http.post(url,categoryRequest);
 
   }
 
   public getCategories(): Observable<Array<Category>>{
-    let url =environment.api + this.endpoint + "categories";
+    let url = environment.api + this.endpoint + "categories";
     return this.http.get<Array<Category>>(url);
     
   }
 
   public deleteCategory(id:number): Observable<any>{
-    let url =environment.api + this.endpoint + id;
+    let url = environment.api + this.endpoint + id;
     return this.http.delete(url);
   } 
 
  public updateCategory(categoryRequest: Category): Observable<any>{
-    let url =environment.api + this.endpoint;
-   return this.http.put(url,categoryRequest);
+    let url = environment.api + this.endpoint;
+    return this.http.put(url,categoryRequest);
 
  }
+
+ public getCategory(id: number): Observable<Category>{
+    let url = environment.api + this.endpoint + id;
+    
+    return this.http.get(url);
+
+  }
 
 }
