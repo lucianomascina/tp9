@@ -22,13 +22,14 @@ export class ListComponent implements OnInit {
     this.list = res;
     
   });
-
   }
 
   deleteProduct(id:number){
     this.productService.deleteProduct(id).subscribe(res => {
       alert("producto borrado correctamente");
       
-    });
+    },
+      error => alert("no es posible borrar el producto ya que esta asociado a otra entidad"));
+    
   }
 }

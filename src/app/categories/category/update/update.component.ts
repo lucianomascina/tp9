@@ -14,33 +14,39 @@ export class UpdateComponent implements OnInit {
 
   id!: number;
   public form!: FormGroup;
+  category = new Category;
 
   constructor(private readonly fb: FormBuilder, private categoryService: CategoryService, private router: Router, private route:ActivatedRoute) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
+    this.getCategory();
     this.initForm();
   }
 
   initForm(){
     this.form = this.fb.group({
-      name: ['',[Validators.required]],
-      description: ['']
+      name: [this.category.CategoryName,[Validators.required, Validators.maxLength(15)]],
+      description: [this.category.Description]
     });
   }
 
-  updateCategory(){
-    var category = new Category();
+  getCategory(){
     this.categoryService.getCategory(this.id).subscribe(res => {
-      category = res;
-    });
-    
-     category.CategoryName = this.form.get('name')!.value;
-     category.Description = this.form.get('description')!.value;
+      this.category = res;
   
-     this.categoryService.updateCategory(category).subscribe(res => {
+    })
+    
+  }
+
+  updateCategory(){
+    
+     this.category.CategoryName = this.form.get('name')!.value;
+     this.category.Description = this.form.get('description')!.value;
+  
+     this.categoryService.updateCategory(this.category).subscribe(res => {
        
-       alert("se modifico la categoria");
+       alert("categoria modificada correctamente");
        
      });
   }

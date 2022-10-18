@@ -2,6 +2,7 @@
     <div class="row">
         <div class="col-md-5">
             <h2 class="text-center">Create Category</h2>
+            <hr>
             <form [formGroup]="form" >
                 <div class="form-group mt-3">
                     <label for="name" class="form-label">Name:</label>
@@ -23,12 +24,14 @@
         </div>
         <div class="col-md-6 offset-md-1 ">
             <h2 class="text-center">Categories List</h2>
-            <table class="table table-hover">
+            <hr>
+            <table class="table table-hover table-dark">
                 <thead>
                     <tr class="">
                         <th>Id</th>
                         <th>Name</th>
                         <th>Description</th>
+                        <th></th>
                         <th></th>
                     </tr>
                 </thead>
