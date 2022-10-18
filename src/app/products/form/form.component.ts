@@ -17,9 +17,13 @@ export class FormComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      name: ['',[Validators.required]],
+      name: ['',[Validators.required, Validators.maxLength(40)]],
+      supplierID: [''],
+      categoryID: [''],
+      quantityPerUnit:['', Validators.maxLength(20)],
       unitPrice: [''],
-      unitsInStock: ['']
+      unitsInStock: [''],
+
     });
     
   }
@@ -27,12 +31,15 @@ export class FormComponent implements OnInit {
   saveProduct(){
    var product = new Product();
     product.ProductName = this.form.get('name')!.value;
+    product.SupplierID = this.form.get('supplierID')!.value;
+    product.CategoryID = this.form.get('categoryID')!.value;
+    product.QuantityPerUnit = this.form.get('quantityPerUnit')!.value;
     product.ProductName = this.form.get('unitPrice')!.value;
     product.ProductName = this.form.get('unitsInStock')!.value;
 
     this.productService.createProduct(product).subscribe(res => {
-      this.form.reset();
-      alert("se guardo el producto");
+     
+      alert("producto guardado correctamente");
 
     });
 
@@ -45,4 +52,6 @@ export class FormComponent implements OnInit {
   onClickClean():void {
     this.form.reset();
   }
+
+  get controls() { return this.form.controls; }
 }

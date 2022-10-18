@@ -6,16 +6,22 @@
             <tr class="">
                 <th>Id</th>
                 <th>Name</th>
+        
+                <th>CategoryID</th>
+                <th>QuantityPerUnit</th>
                 <th>Unit Price</th>
                 <th>Units in Stock</th>
                 <th></th>
-                <th></th>
+                
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let prod of list">
                 <td>{{prod.ProductID}}</td>
                 <td>{{prod.ProductName}}</td>
+                
+                <td>{{prod.CategoryID}}</td>
+                <td>{{prod.QuantityPerUnit}}</td>
                 <td>{{prod.UnitPrice | currency}}</td>
                 <td>{{prod.UnitsInStock}}</td>
                 <td><button class="btn btn-danger" (click)="deleteProduct(prod.ProductID)">Delete</button></td>
